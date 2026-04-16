@@ -1,0 +1,44 @@
+description: >
+  无proj_in，原始数据，l8
+
+
+model:
+  embed_dim: &embed_dim 1536
+  enc_depth: 1
+
+  attn_cfg:
+    embed_dim: *embed_dim
+    num_heads: 24  # 64 per head
+    dropout: 0.1
+    mlp_ratio: 4.0
+    activation: gelu
+
+  optim_cfg:
+    opt: adamw
+    lr: 2e-5
+    betas: [0.9, 0.999]
+    weight_decay: 0.01
+
+  lr_scheduler_cfg:
+    sched: cosine
+    warmup_lr: 1e-6
+    min_lr: 1e-6
+    updates_per_epoch: 500
+    num_epochs: 40  # 20000 steps
+    warmup_epochs: 1
+    step_on_epochs: false
+
+  loss_cfg:
+    contrastive:
+      weight: 1.0
+      temperature: 0.07
+
+
+data:
+  train:
+    params:
+      root: 
+      - hdfs://haruna/home/byte_toutiao_client_ai/ai_image_recognition_v3/wds_series_emb/20260331/uniform
+
+
+ckpt_path: null # to resume

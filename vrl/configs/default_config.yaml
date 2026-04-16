@@ -1,0 +1,38 @@
+description: >
+  Default configuration for trainer, checkpoint, and data.
+
+
+trainer:
+  accelerator: gpu
+  strategy: ddp_find_unused_parameters_true
+  devices: 8
+  num_nodes: 1
+  precision: 32
+  max_steps: 20_000
+  check_val_every_n_epoch: 999 # no validation
+  num_sanity_val_steps: 0
+  log_every_n_steps: 10
+
+
+checkpoint:
+  every_n_train_steps: 500
+  save_top_k: 1
+
+
+data:
+  batch_size: 128
+  num_workers: 8
+  train:
+    target: vrl.data.ToutiaoVideoEmbs
+    params:
+      root: /home/byte_toutiao_client_ai/ai_image_recognition_v3/wds_series_emb/20260312/extra
+      repeat: true
+      shardshuffle: 1000
+  validation:
+    target: vrl.data.ToutiaoVideoEmbs
+    params:
+      root: /home/byte_toutiao_client_ai/ai_image_recognition_v3/wds_series_emb/20260312/extra
+  test:
+    target: vrl.data.ToutiaoVideoEmbs
+    params:
+      root: /home/byte_toutiao_client_ai/ai_image_recognition_v3/wds_series_emb/20260312/extra

@@ -1,0 +1,65 @@
+description: >
+  原始数据，短剧数据，TSA256
+
+
+model:
+  feat_dim: 1536
+  embed_dim: &embed_dim 1536
+  local_clip_len: [32, 64, 96, 128]
+  enc_depth: 0
+  dec_depth: 4
+  query_num: 1
+  query_grad: true
+
+  attn_cfg:
+    embed_dim: *embed_dim
+    num_heads: 24  # 64 per head
+    dropout: 0.1
+    mlp_ratio: 4.0
+    activation: gelu
+  
+  ffn_cfg:
+    embed_dim: *embed_dim
+    dropout: 0.1
+    mlp_ratio: 4.0
+    activation: gelu
+    num_blocks: 2
+    pre_norm: true
+  
+  optim_cfg:
+    opt: adamw
+    lr: 2e-5
+    betas: [0.9, 0.999]
+    weight_decay: 0.01
+
+  lr_scheduler_cfg:
+    sched: cosine
+    warmup_lr: 1e-6
+    min_lr: 1e-6
+    updates_per_epoch: 500
+    num_epochs: 40  # 20000 steps
+    warmup_epochs: 1
+    step_on_epochs: false
+
+  loss_cfg:
+    infonce:
+      weight: 1.0
+      temperature: 0.07
+      slot_wise: false
+    koleo:
+      weight: 1.0
+      slot_wise: false
+
+
+data:
+  train:
+    params:
+      root: 
+      - /home/byte_toutiao_client_ai/ai_image_recognition_v3/wds_qclip/20260415/short_drama/
+      - /home/byte_toutiao_client_ai/ai_image_recognition_v3/wds_qclip/20260415/short_drama_extra/
+      partition_cfg:
+        part_size: 128
+        interval_size: 256
+
+
+ckpt_path: null # to resume
