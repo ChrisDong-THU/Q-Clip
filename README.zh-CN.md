@@ -2,13 +2,6 @@
 
 # 🎞️ Q-Clip
 
-### Deduplicate Before You Aggregate:<br>Efficient Clip Encoding for Scalable Video Retrieval
-
-*通过可学习查询，将帧特征聚合为紧凑的片段描述子。*
-
-Jiajun Dong · Yuan Liang · Gengyuan Liu<br>
-**ACM Multimedia 2026**
-
 [![Paper](docs/assets/badges/paper.svg)](https://doi.org/10.1145/3767308.3835060)
 [![PyTorch](docs/assets/badges/pytorch.svg)](qclip/models/qclip.py)
 [![流水线指南](docs/assets/badges/docs.svg)](docs/REPRODUCING.zh-CN.md)

@@ -2,12 +2,7 @@
 
 # 🎞️ Q-Clip
 
-### Deduplicate Before You Aggregate:<br>Efficient Clip Encoding for Scalable Video Retrieval
-
 *Compressing frame embeddings into compact clip descriptors with learnable queries.*
-
-Jiajun Dong · Yuan Liang · Gengyuan Liu<br>
-**ACM Multimedia 2026**
 
 [![Paper](docs/assets/badges/paper.svg)](https://doi.org/10.1145/3767308.3835060)
 [![PyTorch](docs/assets/badges/pytorch.svg)](qclip/models/qclip.py)
