@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use Q-Clip in your research, please cite the accompanying paper."
+type: software
+title: Q-Clip
+authors:
+  - family-names: Dong
+    given-names: Jiajun
+  - family-names: Liang
+    given-names: Yuan
+  - family-names: Liu
+    given-names: Gengyuan
+repository-code: "https://github.com/ChrisDong-THU/Q-Clip"
+url: "https://github.com/ChrisDong-THU/Q-Clip"
+preferred-citation:
+  type: conference-paper
+  title: "Deduplicate Before You Aggregate: Efficient Clip Encoding for Scalable Video Retrieval"
+  authors:
+    - family-names: Dong
+      given-names: Jiajun
+    - family-names: Liang
+      given-names: Yuan
+    - family-names: Liu
+      given-names: Gengyuan
+  collection-title: "Proceedings of the 34th ACM International Conference on Multimedia"
+  year: 2026
+  doi: "10.1145/3767308.3835060"
+  url: "https://doi.org/10.1145/3767308.3835060"
